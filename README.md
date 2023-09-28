@@ -18,6 +18,6 @@ Installation and Usage
 (8) Once the application is running you can access the API swagger documentation on your browser via http://localhost:3000/api/  
 
 Note
-(1) The hosted application swagger url can be reached on https://chat-app.onrender.com/api
+(1) The hosted application swagger url can be reached on https://chat-app-nl1a.onrender.com/api/
 (2) The site was designed with Nodejs and Express so you must have nodejs installed to run it.
 (3) A registered user can only get and perform operations on the chatrooms he or she created or joined.

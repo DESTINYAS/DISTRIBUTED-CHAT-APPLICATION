@@ -22,9 +22,6 @@ io.on('connection', (socket) => {
     });
 
     socket.on('sendMessage', ({ chatRoomId, message }) => {
-        // Save the message to the database (using Mongoose, if needed)
-
-        // Broadcast the message to all members of the chat room
         socket.to(chatRoomId).emit('message', message);
     });
 
@@ -33,13 +30,13 @@ io.on('connection', (socket) => {
     });
 });
 
-const swaggerSpec = require('./swagger'); // Path to your Swagger configuration file
+const swaggerSpec = require('./swagger');
 const swaggerUi = require('swagger-ui-express');
 
 app.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
-app.use(bodyParser.json()); // application/json
+app.use(bodyParser.json());
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');

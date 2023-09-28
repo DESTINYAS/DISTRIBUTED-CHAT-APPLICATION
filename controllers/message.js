@@ -33,7 +33,6 @@ exports.sendMessage = async (req, res,next) => {
 
         // Emit a WebSocket event to notify all members of the chat room about the new message
         const sendMessage = (io, message) => {
-            // Use io here to send messages via Socket.IO
             io.to(chatRoomId).emit('message', message);
           }
 

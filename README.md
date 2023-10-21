@@ -21,3 +21,4 @@ Note
 (1) The hosted application swagger url can be reached on https://chat-app-nl1a.onrender.com/api/
 (2) The site was designed with Nodejs and Express so you must have nodejs installed to run it.
 (3) A registered user can only get and perform operations on the chatrooms he or she created or joined.
+(4) To run the docker file use the command docker-compose up and this will connect to the database and spin up 2 instances of the containerized application behind the load balancer when run.

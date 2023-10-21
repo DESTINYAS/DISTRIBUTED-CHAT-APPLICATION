@@ -1,0 +1,46 @@
+version: '3'
+services:
+  backend1:
+    build:
+      context: .
+      dockerfile: Dockerfile  
+    container_name: nodejs-app-1
+    image: my-node-app-1
+    environment:
+      MONGODB_URI: ${MONGODB_URI}
+    networks:
+      - app-network
+
+  backend2:
+    build:
+      context: .
+      dockerfile: Dockerfile  
+    container_name: nodejs-app-2
+    image: my-node-app-2
+    environment:
+      MONGODB_URI: ${MONGODB_URI}
+    networks:
+      - app-network
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb_latest
+    environment:
+      MONGO_INITDB_DATABASE: mydatabase
+    networks:
+      - app-network
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    container_name: nginx
+    image: my-nginx
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
